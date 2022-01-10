@@ -1873,6 +1873,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@popperjs/core@npm:^2.11.2":
+  version: 2.11.2
+  resolution: "@popperjs/core@npm:2.11.2"
+  checksum: 5695bf020eda54636e16a62dc9b5fdd92beaf7b2d19f62fcef049d57c5cff92773562d80cbf760b217c3ec928da310eb24994ab6a00fd39dffa0af9b5dfc01a6
+  languageName: node
+  linkType: hard
+
 "@reduxjs/toolkit@npm:^1.5.1":
   version: 1.7.1
   resolution: "@reduxjs/toolkit@npm:1.7.1"
@@ -8236,6 +8243,7 @@ __metadata:
   resolution: "movies_tvs_app@workspace:."
   dependencies:
     "@headlessui/react": ^1.4.2
+    "@popperjs/core": ^2.11.2
     "@reduxjs/toolkit": ^1.5.1
     "@testing-library/jest-dom": ^4.2.4
     "@testing-library/react": ^9.3.2
@@ -8252,7 +8260,7 @@ __metadata:
     react-icons: ^4.3.1
     react-popper: ^2.2.5
     react-redux: ^7.2.0
-    react-scripts: 5.0.0
+    react-scripts: ^5.0.0
     tailwindcss: ^3.0.12
     typescript: ~4.1.5
   languageName: unknown
@@ -10042,7 +10050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-scripts@npm:5.0.0":
+"react-scripts@npm:^5.0.0":
   version: 5.0.0
   resolution: "react-scripts@npm:5.0.0"
   dependencies:
@@ -11834,13 +11842,13 @@ __metadata:
   linkType: hard
 
 "v8-to-istanbul@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "v8-to-istanbul@npm:8.1.0"
+  version: 8.1.1
+  resolution: "v8-to-istanbul@npm:8.1.1"
   dependencies:
     "@types/istanbul-lib-coverage": ^2.0.1
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
-  checksum: c7dabf9567e0c210b24d0720e553803cbe1ff81edb1ec7f2080eb4be01ed081a40286cc9f4aaa86d1bf8d57840cefae8fdf326b7cb8faa316ba50c7b948030d4
+  checksum: 54ce92bec2727879626f623d02c8d193f0c7e919941fa373ec135189a8382265117f5316ea317a1e12a5f9c13d84d8449052a731fe3306fa4beaafbfa4cab229
   languageName: node
   linkType: hard
 
