@@ -1,19 +1,28 @@
 import React from "react";
+import { HomePageDivider } from "./HomePageDivider";
+import { PopularPeopleSection } from "./PopularPeopleSection";
+import { SliderSection } from "./SliderSection";
+import { TrendingMoviesSection } from "./TrendingMoviesSection";
+import { TrendingTVShowsSection } from "./TrendingTVShowsSection";
 
 export const Home = () => {
   return (
-    <div className=" text-white">
-      <div className="h-32 bg-cyan-700 ">slider</div>
-      <div className="container mx-auto">
-        <div className="h-32 bg-cyan-700 ">trending movies</div>
-      </div>
-      <div className="container mx-auto">
-        <div className="h-32 bg-cyan-700">trending shows</div>
-      </div>
-      <div className="h-24 bg-violet-700 ">divider</div>
-      <div className="container mx-auto">
-        <div className="h-32 bg-cyan-700 container mx-auto">Popular people</div>
-      </div>
+    <div className=" ">
+      <section className="my-3">
+        <SliderSection />
+      </section>
+      <section className="container mx-auto my-3">
+        <TrendingMoviesSection />
+      </section>
+      <section className="container mx-auto my-3">
+        <TrendingTVShowsSection />
+      </section>
+      <section className="my-3 ">
+        <HomePageDivider />
+      </section>
+      <section className="container mx-auto my-3">
+        <PopularPeopleSection />
+      </section>
     </div>
   );
 };

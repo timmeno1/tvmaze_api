@@ -8,6 +8,7 @@ import {
 } from "react-icons/hi";
 import { usePopper } from "react-popper";
 import logo from "../../assets/img/logo.svg";
+import { MobileMenu } from "./MobileMenu";
 
 export const Menu = () => {
   const [referenceSearchBtn, setReferenceSearchBtn] = useState<HTMLButtonElement | null>(null);
@@ -25,7 +26,7 @@ export const Menu = () => {
 
   return (
     <nav
-      className="sticky top-0 w-full bg-white bg-opacity-70 flex flex-col justify-center py-3 md:py-6 lg:text-lg "
+      className="sticky z-10 top-0 w-full bg-white md:bg-opacity-70 flex flex-col justify-center py-3 md:py-6 lg:text-lg "
     >
       <div className="container mx-auto flex flex-row justify-around px-6">
         <button className="">
@@ -60,7 +61,7 @@ export const Menu = () => {
                 <Popover.Button
                   ref={setReferenceSearchBtn}
                   className={
-                    "flex flex-row items-center space-x-4 py-1 px-3 rounded-md bg-pink-600 text-white hover:bg-teal-800 transition-colors duration-300 "
+                    "flex flex-row items-center space-x-4 py-1 px-3 rounded-md bg-pink-600 text-white hover:bg-gray-600 transition-colors duration-300 "
                   }
                 >
                   <span>Search</span>
@@ -75,77 +76,18 @@ export const Menu = () => {
                 >
                   <div className="container mx-auto">
                   <input
+                  autoFocus
                       type="text"
-                      className="rounded-md  mt-2 px-3 py-1 text-teal-800 outline outline-1 outline-teal-800"
+                      className="rounded-md  mt-2 px-3 py-1 text-gray-600 outline outline-1 outline-gray-600"
                     />
                   </div>
                   
                 </Popover.Panel>
           </Popover>
         </div>
-        {
-          //  mobile menu layout
-        }
-        <MobileMenu />
-        <button className=" md:hidden cursor-pointer" onClick={setTheme}>
-            {!isDark ? (
-              <HiOutlineMoon className="h-6 w-6 text-pink-600 " />
-            ) : (
-              <HiOutlineSun className="h-6 w-6 " />
-            )}
-          </button>
-        <Popover className="">
-          
-              <Popover.Button
-                className={
-                  "md:hidden flex flex-row items-center py-1 px-2 rounded-md bg-pink-600 text-white hover:bg-teal-800 transition-colors duration-300 "
-                }
-              >
-                <HiOutlineMenu className=" h-6 w-6 " />
-              </Popover.Button>
-              <Popover.Panel
-                ref={setPopperElement}
-                style={styles.popper}
-                {...attributes.popper}
-                className="w-full  text-white z-10"
-              >
-                <div className=" bg-white divide-y-2 divide-gray-50">
-                  <div className="pt-5 pb-6 px-5">
-                    <nav className="mx-auto flex w-4/5 flex-col items-sctretch justify-center gap-y-8">
-                      <button className="-m-3 p-3 rounded-md uppercase bg-pink-600">
-                        Shows
-                      </button>
-                      <button className="-m-3 p-3 rounded-md  uppercase bg-pink-600">
-                        Movies
-                      </button>
-                      <button className="-m-3 p-3 rounded-md  uppercase bg-pink-600">
-                        Trending
-                      </button>
-                      <button className="-m-3 p-3 rounded-md  uppercase bg-pink-600">
-                        People
-                      </button>
-                    </nav>
-                  </div>
-                  <div className="mx-auto w-4/5 py-4 space-x-2 flex justify-center items-center text-pink-600">
-                    <input
-                      type="text"
-                      className="rounded-md px-2 py-1 text-teal-800 outline outline-1 outline-teal-800"
-                    />{" "}
-                    <button
-                      onClick={() => {
-                        console.log("search");
-                      }}
-                      className="p-1"
-                    >
-                      <HiOutlineSearch className="w-6 h-6" />
-                    </button>
-                  </div>
-                </div>
 
-                <div className="container bg-pink-600 flex flex-col space-y-4 justify-center items-center"></div>
-              </Popover.Panel>
-              
-        </Popover>
+        <MobileMenu isDark={isDark} setTheme={setTheme} />
+        
       </div>
     </nav>
   );
