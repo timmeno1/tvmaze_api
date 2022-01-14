@@ -26,7 +26,7 @@ export const Menu = () => {
 
   return (
     <nav
-      className="sticky z-10 top-0 w-full bg-white md:bg-opacity-70 flex flex-col justify-center py-3 md:py-6 lg:text-lg "
+      className="sticky shadow-md z-10 top-0 w-full bg-white md:bg-opacity-90 flex flex-col justify-center py-3 md:py-6 mb-3 lg:text-lg "
     >
       <div className="container mx-auto flex flex-row justify-around px-6">
         <button className="">
