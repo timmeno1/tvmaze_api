@@ -2,17 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+svg .str0 {
+  stroke: #db2777;
+  stroke-width: 2.08;
+  stroke-miterlimit: 22.9256;
+}
+svg .fil1 {
+  fill: none;
+}
+svg .fil2 {
+  fill: #db2777;
+}
+
+body {
+}
+.translate-0 {
+}
+.perspective {
+}
+.preserve-3d {
+}
 .parallaxImage {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url(./assets/img/crew_photo.jpg);
-  background-position: center 52px;
+  /* background-image: url(./assets/img/crew_photo.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  transform-origin: 0;
+  /* transform: translateZ(-1px) scale(2); */
+  z-index: -10;
+
   filter: saturate(30%) brightness(75%);
 }
 .parallaxHero {
@@ -44,12 +62,14 @@
   transition: ease-in-out;
   transition-duration: 300ms;
 }
-.swiper-button-prev:hover, .swiper-button-next:hover {
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 1px 0 rgba(75, 85, 99, 0.3);
   transform: scale(1.1);
 }
-.swiper-button-prev::after,.swiper-button-next::after {
+.swiper-button-prev::after,
+.swiper-button-next::after {
   font-size: 1.5rem !important;
 }
 
@@ -72,4 +92,4 @@
     background-attachment: scroll;
     background-position: center -1rem;
   }
-} 
+}

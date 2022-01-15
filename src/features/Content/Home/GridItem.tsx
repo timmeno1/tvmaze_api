@@ -6,9 +6,9 @@ export const GridItem = (props: GridItemPropsType) => {
   const circleProgress = circleArray - (73 / 100) * circleArray;
 
   return (
-    <div className="  text-pink-600 shadow-lg shadow-gray-600/30 shadow-opacity- rounded-lg ring-2 ring-pink-600 ring-opacity-50" >
+    <div className="  text-pink-600 shadow-lg shadow-gray-600/30 rounded-lg ring-2 ring-pink-600 ring-opacity-50" >
       <img src={props.imgUrl} alt="" className="rounded-t-lg"/>
-      <div className="pt-8 pb-3 px-3 relative">
+      <div className="pt-8 pb-3 px-3 relative bg-white rounded-b-lg">
         <h3 className="text-xl lg:text-2xl font-semibold">
           Resident Evil: Welcome to Raccoon City
         </h3>
@@ -17,7 +17,7 @@ export const GridItem = (props: GridItemPropsType) => {
           <svg className="w-12 h-12 transform -rotate-90">
             <circle
               className="text-gray-300"
-              stroke-width="6"
+              strokeWidth="6"
               stroke="currentColor"
               fill="transparent"
               r="22"
@@ -26,10 +26,10 @@ export const GridItem = (props: GridItemPropsType) => {
             />
             <circle
               className="text-green-500"
-              stroke-width="6"
+              strokeWidth="6"
               strokeDasharray={circleArray}
               strokeDashoffset={circleProgress}
-              stroke-linecap="round"
+              strokeLinecap="round"
               stroke="currentColor"
               fill="transparent"
               r="22"
@@ -39,7 +39,6 @@ export const GridItem = (props: GridItemPropsType) => {
           </svg>
           <span
             className="absolute text-sm md:text-base text-white font-semibold "
-            x-text="`${percent}%`"
           >
             73%
           </span>

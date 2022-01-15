@@ -5,14 +5,16 @@ import { useAppSelector } from "../../../app/hooks";
 export const PopularPeopleSection = () => {
   const isMobile = useAppSelector((state) => state.mobileDetect.isMobile);
   return (
-    <>
+    <div className="py-6">
       <Swiper
-        className=""
         // install Swiper modules
         modules={[Scrollbar, A11y, Autoplay, Mousewheel]}
         spaceBetween={0}
         autoplay
-        mousewheel={true}
+        mousewheel={{
+          forceToAxis:true,
+          
+        }}
         slidesPerView={isMobile ? 3 : 4}
         scrollbar={{ draggable: true }}
         //onSwiper={(swiper) => console.log(swiper)}
@@ -31,6 +33,6 @@ export const PopularPeopleSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };

@@ -1,5 +1,5 @@
 import { Popover, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import {
   HiOutlineMenu,
   HiOutlineMoon,
@@ -7,21 +7,26 @@ import {
   HiOutlineSun,
   HiX,
 } from "react-icons/hi";
-import { usePopper } from "react-popper";
 
 type MobileMenuPropsType = {
   isDark: boolean;
-  setTheme: () => void;
+  setDarkTheme: (dark:boolean) => void;
 };
 
 export const MobileMenu = (props: MobileMenuPropsType) => {
   return (
     <>
-      <button className=" md:hidden cursor-pointer" onClick={props.setTheme}>
+      <button className=" md:hidden cursor-pointer" >
         {!props.isDark ? (
-          <HiOutlineMoon className="h-6 w-6 text-pink-600 " />
+          <HiOutlineMoon 
+          onClick={() => {
+            props.setDarkTheme(true);
+          }} className="h-6 w-6 text-pink-600 " />
         ) : (
-          <HiOutlineSun className="h-6 w-6 " />
+          <HiOutlineSun
+          onClick={() => {
+            props.setDarkTheme(false);
+          }} className="h-6 w-6 " />
         )}
       </button>
       <Popover className="relative z-10">
@@ -31,7 +36,7 @@ export const MobileMenu = (props: MobileMenuPropsType) => {
               className={
                   !open
                 ? "md:hidden  py-1 px-2 rounded-md bg-pink-600 text-white transition-all duration-500 "
-                : " py-1 px-2 rounded-md bg-gray-600 text-white transition-all duration-500"
+                : " py-1 px-2 rounded-md bg-gray-600 dark:bg-pink-600 text-white transition-all duration-500"
             }
             >
                 {
@@ -53,9 +58,9 @@ export const MobileMenu = (props: MobileMenuPropsType) => {
             >
               <Popover.Panel
                 style={{ width: "300px" }}
-                className="absolute  text-white transform -translate-x-full left-12 top-10"
+                className="absolute text-white transform -translate-x-full left-12 top-10"
               >
-                <div className="pt-4 rounded-md z-10 shadow-md ring-2 ring-gray-600 ring-opacity-25 bg-white divide-y-2 divide-pink-200">
+                <div className="pt-4 rounded-md z-10 shadow-lg shadow-gray-600/40 ring-1 ring-gray-600 dark:ring-pink-600 ring-opacity-25 bg-white dark:bg-gray-700  divide-y-2 divide-pink-200">
                   <div className="py-5 z-10">
                     <div className="mx-auto  z-10 flex w-4/5 flex-col items-sctretch justify-center gap-y-8">
                       <button className="-m-3 p-3 rounded-md uppercase bg-pink-600">
@@ -75,7 +80,7 @@ export const MobileMenu = (props: MobileMenuPropsType) => {
                   <div className="mx-auto w-4/5 py-4 space-x-2 flex justify-center items-center text-pink-600">
                     <input
                       type="text"
-                      className="rounded-md px-2 py-1 text-teal-800 outline outline-1 outline-teal-800"
+                      className="rounded-md px-2 py-1 text-gray-600 outline outline-1 outline-gray-600 dark:outline-pink-600  "
                     />{" "}
                     <button
                       onClick={() => {
@@ -83,7 +88,7 @@ export const MobileMenu = (props: MobileMenuPropsType) => {
                       }}
                       className="p-1"
                     >
-                      <HiOutlineSearch className="w-6 h-6" />
+                      <HiOutlineSearch className="w-6 h-6 dark:text-white" />
                     </button>
                   </div>
                 </div>
