@@ -14,16 +14,17 @@ function App() {
   const dispatch = useAppDispatch()
 
   useEffect(()=>{
-      dispatch(setIsMobile(isMobile))
+    let width = window.innerWidth
+      dispatch(setIsMobile(isMobile && width < 768))
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         setIsDark(true)
       } else {
         setIsDark(false)
       }
-  }, [isMobile, setIsDark, dispatch])
+  }, [setIsDark, dispatch])
   
   return (
-    <div className={`App ${isDark ? `dark` : `` } translate-0 scroll-smooth text-gray-600 dark:text-white dark:bg-gray-600`}>
+    <div className={`App ${isDark ? `dark` : `` }  scroll-smooth text-gray-600 dark:text-gray-300 dark:bg-gray-600`}>
         <Menu isDark={isDark} setIsDark={setIsDark} />
         <Content />
         <Footer />

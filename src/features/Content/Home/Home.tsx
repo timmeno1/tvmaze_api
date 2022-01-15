@@ -7,20 +7,20 @@ import { TrendingTVShowsSection } from "./TrendingTVShowsSection";
 
 export const Home = () => {
   return (
-    <div className="dark:bg-gray-400">
-      <section className="py-6 mx-auto  preserve-3d" style={{maxWidth:"1920px"}}>
+    <div className="dark:bg-gray-500">
+      <section className="py-6 mx-auto  " style={{ maxWidth: "1920px" }}>
         <SliderSection />
       </section>
-      <section className="container mx-auto my-6  preserve-3d">
+      <section className="container mx-auto my-3 md:my-6">
         <TrendingMoviesSection />
       </section>
-      <section className="container mx-auto my-6  preserve-3d">
+      <section className="container mx-auto my-5 md:my-9">
         <TrendingTVShowsSection />
       </section>
-      <section className="my-6 shadow-lg z-10 ">
+      <section className="my-3 md:my-6 shadow-lg ">
         <HomePageDivider />
       </section>
-      <section className="container mx-auto  preserve-3d">
+      <section className="container mx-auto ">
         <PopularPeopleSection />
       </section>
     </div>

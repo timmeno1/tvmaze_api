@@ -1,11 +1,6 @@
-import { Popover } from "@headlessui/react";
-import React, { useState } from "react";
-import {
-  HiOutlineMoon,
-  HiOutlineSearch,
-  HiOutlineSun,
-} from "react-icons/hi";
-import { usePopper } from "react-popper";
+import { Popover, Transition } from "@headlessui/react";
+import React, { Fragment } from "react";
+import { HiOutlineMoon, HiOutlineSearch, HiOutlineSun } from "react-icons/hi";
 import { MobileMenu } from "./MobileMenu";
 
 type MenuPropsType = {
@@ -14,19 +9,7 @@ type MenuPropsType = {
 };
 
 export const Menu = (props: MenuPropsType) => {
-  const [referenceSearchBtn, setReferenceSearchBtn] =
-    useState<HTMLButtonElement | null>(null);
-  const [popperSearch, setPopperSearch] = useState<HTMLDivElement | null>();
-  const { styles, attributes } = usePopper(referenceSearchBtn, popperSearch, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 2],
-        },
-      },
-    ],
-  });
+  
   const setDarkTheme = (dark: boolean) => {
     if (dark) {
       // Whenever the user explicitly chooses dark mode
@@ -66,16 +49,16 @@ export const Menu = (props: MenuPropsType) => {
           //  desktop menu layout
         }
         <div className=" hidden md:flex flex-row md:justify-start w-1/2">
-          <button className="hover:text-pink-600 py-1 px-3 uppercase">
+          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
             Shows
           </button>
-          <button className="hover:text-pink-600 py-1 px-3 uppercase">
+          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
             Movies
           </button>
-          <button className="hover:text-pink-600 py-1 px-3 uppercase">
+          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
             Trending
           </button>
-          <button className="hover:text-pink-600 py-1 px-3 uppercase">
+          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
             People
           </button>
         </div>
@@ -86,42 +69,47 @@ export const Menu = (props: MenuPropsType) => {
                 onClick={() => {
                   setDarkTheme(true);
                 }}
-                className="h-6 w-6 text-pink-600 "
+                className="h-6 w-6 text-pink-600 hover:text-gray-600 transition-colors duration-300"
               />
             ) : (
               <HiOutlineSun
                 onClick={() => {
                   setDarkTheme(false);
                 }}
-                className="h-6 w-6 "
+                className="h-6 w-6 hover:text-pink-600 transition-colors duration-300"
               />
             )}
           </button>
-          <Popover className="">
+          <Popover className="relative">
             <Popover.Button
-              ref={setReferenceSearchBtn}
               className={
-                "flex flex-row items-center space-x-4 py-1 px-3 rounded-md bg-pink-600 text-white hover:bg-gray-600 transition-colors duration-300 "
+                "flex flex-row items-center space-x-4 py-1 px-3 rounded-md bg-pink-600 text-white hover:bg-pink-500 transition-colors duration-300 "
               }
             >
               <span>Search</span>
               <HiOutlineSearch className=" h-6 w-6 " />
             </Popover.Button>
-
-            <Popover.Panel
-              ref={setPopperSearch}
-              style={styles.popper}
-              {...attributes.popper}
-              className="  text-white z-10"
+            <Transition
+              as={Fragment}
+              enter="transition ease-in duration-150"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-out duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
             >
-              <div className="container mx-auto">
-                <input
-                  autoFocus
-                  type="text"
-                  className="rounded-md  mt-2 px-3 py-1 text-gray-600 outline outline-1 outline-gray-600"
-                />
-              </div>
-            </Popover.Panel>
+              <Popover.Panel
+                className=" absolute transform -translate-x-full -right-72 lg:-right-80  top-8"
+              >
+                <div className="container mx-auto">
+                  <input
+                    autoFocus
+                    type="text"
+                    className="rounded-md  mt-2 px-3 py-1 text-gray-600 outline outline-1 outline-gray-600"
+                  />
+                </div>
+              </Popover.Panel>
+            </Transition>
           </Popover>
         </div>
 

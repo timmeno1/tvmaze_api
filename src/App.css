@@ -13,46 +13,15 @@ svg .fil1 {
 svg .fil2 {
   fill: #db2777;
 }
-
-body {
-}
-.translate-0 {
-}
-.perspective {
-}
-.preserve-3d {
-}
-.parallaxImage {
-  /* background-image: url(./assets/img/crew_photo.jpg);
-  background-size: cover;
-  background-repeat: no-repeat; */
-  /* background-attachment: fixed; */
-  transform-origin: 0;
-  /* transform: translateZ(-1px) scale(2); */
-  z-index: -10;
-
-  filter: saturate(30%) brightness(75%);
-}
-.parallaxHero {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
 .swiper-button-prev {
   left: 15% !important;
-  color: #db2777 !important;
-  height: 3rem !important;
-  width: 3rem !important;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 9999px;
-  box-shadow: 0 2px 4px 0 rgba(75, 85, 99, 0.3);
-  transition: ease-in-out;
-  transition-duration: 300ms;
 }
 .swiper-button-next {
   right: 15% !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
   color: #db2777 !important;
   height: 3rem !important;
   width: 3rem !important;
@@ -61,6 +30,7 @@ body {
   box-shadow: 0 2px 4px 0 rgba(75, 85, 99, 0.3);
   transition: ease-in-out;
   transition-duration: 300ms;
+  border: 1px solid #db2777;
 }
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
@@ -73,23 +43,13 @@ body {
   font-size: 1.5rem !important;
 }
 
-.swiper-3d .swiper-wrapper {
-  margin-bottom: 1rem;
+.swiper-wrapper {
+  padding-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {
   .swiper-button-prev,
   .swiper-button-next {
     display: none !important;
-  }
-
-  .parallaxImage {
-    background-position: center;
-  }
-}
-@media only screen and (max-device-width: 1366px) {
-  .parallaxImage {
-    background-attachment: scroll;
-    background-position: center -1rem;
   }
 }

@@ -8268,6 +8268,7 @@ __metadata:
     react-device-detect: ^2.1.2
     react-dom: ^17.0.2
     react-icons: ^4.3.1
+    react-parallax: ^3.3.0
     react-popper: ^2.2.5
     react-redux: ^7.2.0
     react-scripts: ^5.0.0
@@ -10029,6 +10030,16 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-parallax@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "react-parallax@npm:3.3.0"
+  peerDependencies:
+    react: 16.x.x || 17.x.x
+    react-dom: 16.x.x || 17.x.x
+  checksum: a345216b136b6f30c765aab75e985eb8d6a33c6f4a4dd311c661741f55faa24558b6a303e4d63c3fe04dee1993aa9beced8818fab49aad902a46eb4fff5db318
   languageName: node
   linkType: hard
 
