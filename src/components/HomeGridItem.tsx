@@ -1,7 +1,7 @@
 type GridItemPropsType = {
   imgUrl: string;
 };
-export const GridItem = (props: GridItemPropsType) => {
+export const HomeGridItem = (props: GridItemPropsType) => {
   const circleArray = 24 * 2 * Math.PI;
   const circleProgress = circleArray - (84 / 100) * circleArray;
 

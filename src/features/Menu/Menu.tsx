@@ -1,6 +1,8 @@
 import { Popover, Transition } from "@headlessui/react";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { HiOutlineMoon, HiOutlineSearch, HiOutlineSun } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { links } from "./links";
 import { MobileMenu } from "./MobileMenu";
 
 type MenuPropsType = {
@@ -9,7 +11,8 @@ type MenuPropsType = {
 };
 
 export const Menu = (props: MenuPropsType) => {
-  
+  const navigate = useNavigate();
+
   const setDarkTheme = (dark: boolean) => {
     if (dark) {
       // Whenever the user explicitly chooses dark mode
@@ -23,9 +26,14 @@ export const Menu = (props: MenuPropsType) => {
   };
 
   return (
-    <nav className="sticky shadow-md z-10 top-0 w-full bg-white md:bg-opacity-90 flex flex-col justify-center py-3 md:py-6 lg:text-lg dark:bg-gray-800 dark:text-white">
+    <nav className="sticky shadow-md z-10 top-0 w-full bg-white flex flex-col justify-center py-3 md:py-6 lg:text-lg dark:bg-gray-800 dark:text-white">
       <div className="container mx-auto flex flex-row justify-around px-6">
-        <button className="">
+        <button
+          className=""
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="dark:fill-white fill-gray-600 h-6 lg:h-8 "
@@ -49,18 +57,18 @@ export const Menu = (props: MenuPropsType) => {
           //  desktop menu layout
         }
         <div className=" hidden md:flex flex-row md:justify-start w-1/2">
-          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
-            Shows
-          </button>
-          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
-            Movies
-          </button>
-          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
-            Trending
-          </button>
-          <button className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase">
-            People
-          </button>
+          {links.map((link, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                navigate(link);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="hover:text-pink-600 transition-colors duration-300 py-1 px-3 uppercase"
+            >
+              {link}
+            </button>
+          ))}
         </div>
         <div className="hidden md:flex flex-row items-center justify-end space-x-4 ">
           <button className="cursor-pointer">
@@ -98,9 +106,7 @@ export const Menu = (props: MenuPropsType) => {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel
-                className=" absolute transform -translate-x-full -right-72 lg:-right-80  top-8"
-              >
+              <Popover.Panel className=" absolute transform -translate-x-full -right-72 lg:-right-80  top-8">
                 <div className="container mx-auto">
                   <input
                     autoFocus

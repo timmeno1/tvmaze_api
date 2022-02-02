@@ -6,8 +6,78 @@ import {
   FaTelegram,
 } from "react-icons/fa";
 import { SiCodewars } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
+import { links } from "../Menu/links";
+
+const contacts = [
+  {
+    name: "email",
+    icon: FaEnvelopeSquare,
+    link: "stimka91@gmail.com",
+  },
+  {
+    name: "linkedin",
+    icon: FaLinkedin,
+    link: "https://www.linkedin.com/in/timur-kodirov-83128b14b/",
+  },
+  {
+    name: "github",
+    icon: FaGithubSquare,
+    link: "https://github.com/timmeno1",
+  },
+  {
+    name: "telegram",
+    icon: FaTelegram,
+    link: "https://t.me/tim356/",
+  },
+  {
+    name: "codewars",
+    icon: SiCodewars,
+    link: "https://www.codewars.com/users/timmeno1",
+  },
+];
+
+const stack = [
+  {
+    name: "React",
+    link: "#",
+    description: "frontend framework",
+  },
+  {
+    name: "Redux Toolkit",
+    link: "#",
+    description: "state manager",
+  },
+  {
+    name: "Swiper.js",
+    link: "#",
+    description: "popular slider module",
+  },
+  {
+    name: "Tailwind",
+    link: "#",
+    description: "CSS framework",
+  },
+  {
+    name: "HeadlessUI",
+    link: "#",
+    description: "unstyled components",
+  },
+  {
+    name: "Netlify",
+    link: "#",
+    description: "SPA (Single Page Application) free hosting",
+  },
+  {
+    name: "Themoviedb",
+    link: "#",
+    description: "open API of movies, tv shows, people data",
+  },
+];
 
 export const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gray-700 dark:bg-gray-800 text-white dark:text-gray-300">
       <div className="container py-4 grid grid-cols-1 md:grid-cols-2 gap-x-8">
@@ -20,14 +90,20 @@ export const Footer = () => {
             purposes <br />
             The project was built using:
           </p>
-          <ul className="list-disc list-inside p-2 font-semibold">
-            <li>React frontend framework</li>
-            <li>Redux Toolkit state manager</li>
-            <li>Swiper.js popular slider module</li>
-            <li>Tailwind CSS framework</li>
-            <li>HeadlessUI unstyled components</li>
-            <li>Netlify SPA (Single Page Application) free hosting</li>
-            <li>Themoviedb open API of movies, tv shows, people data </li>
+          <ul className="list-disc list-inside p-2">
+            {stack.map((tech, i) => (
+              <li key={i}>
+                <strong
+                  onClick={() => {
+                    console.log(tech.link);
+                  }}
+                  className="font-semibold hover:text-pink-600 transition-colors duration-300 cursor-pointer"
+                >
+                  {tech.name}
+                </strong>
+                {" " + tech.description}
+              </li>
+            ))}
           </ul>
           <h3 className="mt-2 text-2xl uppercase text-pink-600">About me</h3>
           <p className="text-lg">
@@ -39,49 +115,39 @@ export const Footer = () => {
             Feel free to follow or message me:
           </p>
           <ul className="px-4 py-1 ">
-            <li>
-              {" "}
-              <button className="flex items-center gap-1">
-                <FaEnvelopeSquare /> Email
-              </button>
-            </li>
-            <li>
-              <button className="flex items-center gap-1">
-                {" "}
-                <FaLinkedin /> LinkedIn
-              </button>
-            </li>
-            <li>
-              <button className="flex items-center gap-1">
-                {" "}
-                <FaGithubSquare />
-                GitHub
-              </button>
-            </li>
-            <li>
-              <button className="flex items-center gap-1">
-                {" "}
-                <FaTelegram />
-                Telegram
-              </button>
-            </li>
-            <li>
-              <button className="flex items-center gap-1">
-                {" "}
-                <SiCodewars />
-                Codewars
-              </button>
-            </li>
+            {contacts.map((contact, i) => {
+              const Icon = contact.icon;
+              return (
+<li
+                  key={i}>
+                <a className="hover:text-pink-600 transition-colors duration-300 cursor-pointer capitalize flex items-center gap-1"
+                  href={
+                    contact.name !== "email"
+                      ? contact.link
+                      : "mailto:" + contact.link
+                  }
+                > <Icon /> {" " + contact.name}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className=" p-4 flex flex-col  ">
           <div className=" flex flex-col justify-center md:justify-start">
             <h3 className=" text-2xl uppercase text-pink-600">Pages</h3>
             <ul className="p-2">
-              <li>Movies</li>
-              <li>Shows</li>
-              <li>People</li>
-              <li>Search</li>
+              {links.map((link, i) => (
+                <li
+                  key={i}
+                  onClick={() => {
+                    navigate(link);
+                    window.scrollTo({top:0, behavior:"smooth"})
+                  }}
+                  className="hover:text-pink-600 transition-colors duration-300 cursor-pointer capitalize"
+                >
+                  {link}
+                </li>
+              ))}
             </ul>
             <br />
           </div>
@@ -89,13 +155,13 @@ export const Footer = () => {
             <h3 className="text-2xl uppercase text-pink-600 ">Copyright</h3>
             <p className="text-lg mb-2">
               All movies, tv shows and people information was provided by{" "}
-              <strong className="uppercase">Themoviedb</strong>
-            </p>
+              <a href="https://www.themoviedb.org/" target={"_blank"} rel="noreferrer">
             <img
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
               alt=""
-              className="w-1/2 "
-            />
+              className="h-12"
+            /></a>
+            </p>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Background, Parallax } from "react-parallax";
+import { Parallax } from "react-parallax";
 import crew from "../../../assets/img/crew_photo.jpg";
 
 export const HomePageDivider = () => {
