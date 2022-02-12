@@ -6,6 +6,14 @@ import { TrendingMoviesSection } from "./TrendingMoviesSection";
 import { TrendingTVShowsSection } from "./TrendingTVShowsSection";
 
 export const Home = () => {
+
+
+  //const { data, error, isLoading } = useGetTVsQuery(null)
+  //const { data, error, isLoading } = useGetPeopleQuery(null)
+
+
+
+
   return (
     <div className="dark:bg-gray-500">
       <section className="py-6 mx-auto  " style={{ maxWidth: "1920px" }}>

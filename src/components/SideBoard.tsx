@@ -17,11 +17,11 @@ export const SideBoard = () => {
   const [selected, setSelected] = useState(sorts[0]);
 
   return (
-    <div className=" flex flex-col gap-y-3 md:w-44 xl:w-64 md:ring-2 ring-pink-600 ring-opacity-50 p-1 rounded-lg md:shadow-lg py-2">
+    <div className=" flex flex-col gap-y-3 md:w-44 xl:w-64 md:ring-2 ring-pink-600 ring-opacity-50 p-2 rounded-lg md:shadow-lg ">
       <Disclosure as="div" className=" w-1/2 md:w-full mx-auto">
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-center bg-pink-100 rounded-lg hover:bg-pink-200 focus:outline-none focus-visible:ring focus-visible:ring-pink-600 focus-visible:ring-opacity-75">
+            <Disclosure.Button className="flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-center bg-pink-100 dark:bg-pink-200 dark:hover:bg-pink-300 rounded-lg hover:bg-pink-200 focus:outline-none focus-visible:ring focus-visible:ring-pink-600 focus-visible:ring-opacity-75">
               <span className="text-base md:text-lg font-semibold">Sort</span>
               <HiChevronDown
                 className={`${
@@ -34,11 +34,11 @@ export const SideBoard = () => {
         <h3 className="font-semibold text-center dark:text-gray-100">Sort Results By</h3>
               <Listbox value={selected} onChange={setSelected}>
                 <div className="relative mt-1">
-                  <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white dark:bg-gray-500 rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-pink-600 focus-visible:border-pink-600 ">
-                    <span className="block truncate dark:text-gray-100">{selected.name}</span>
+                  <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white dark:bg-gray-300 rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-pink-600 focus-visible:border-pink-600 ">
+                    <span className="block truncate text-pink-600">{selected.name}</span>
                     <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                       <HiSelector
-                        className="w-5 h-5 text-gray-600 dark:text-gray-100"
+                        className="w-5 h-5 text-pink-600"
                         aria-hidden="true"
                       />
                     </span>
@@ -49,7 +49,7 @@ export const SideBoard = () => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Listbox.Options className="absolute w-full md:w-56 z-20 py-1 mt-1 overflow-auto text-base bg-white dark:bg-gray-500 rounded-md shadow-lg max-h-60 ring-1 ring-slate-600 ring-opacity-5 focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute w-full md:min-w-56 z-20 py-1 mt-1 overflow-auto text-base bg-white dark:bg-gray-400 rounded-md shadow-lg max-h-60 ring-1 ring-slate-600 ring-opacity-5 focus:outline-none sm:text-sm">
                       {sorts.map((sort, i) => (
                         <Listbox.Option
                           key={i}
@@ -100,7 +100,7 @@ export const SideBoard = () => {
       <Disclosure as="div" className="w-1/2 md:w-full mx-auto">
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-left bg-pink-100 rounded-lg hover:bg-pink-200 focus:outline-none focus-visible:ring focus-visible:ring-pink-600 focus-visible:ring-opacity-75">
+            <Disclosure.Button className="flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-left bg-pink-100  dark:bg-pink-200 dark:hover:bg-pink-300 rounded-lg hover:bg-pink-200 focus:outline-none focus-visible:ring focus-visible:ring-pink-600 focus-visible:ring-opacity-75">
               <span className="text-base md:text-lg font-semibold">
                 Filters
               </span>

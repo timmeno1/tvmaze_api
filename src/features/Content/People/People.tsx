@@ -16,9 +16,9 @@ export const People = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12">
         {!isMobile
           ? [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <HomeGridItem key={i} imgUrl={imgUrl} />
+              <HomeGridItem key={i} imgUrl={imgUrl} title="qwe" year={123} rating={50} />
             ))
-          : [1, 2, 3, 4].map((i) => <HomeGridItem key={i} imgUrl={imgUrl} />)}
+          : [1, 2, 3, 4].map((i) => <HomeGridItem key={i} imgUrl={imgUrl} title="qwe" year={123} rating={50} />)}
       </div>
     </div>)
 }

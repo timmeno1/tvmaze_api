@@ -28,9 +28,9 @@ export const Moveis = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
         {!isMobile
           ? [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <HomeGridItem key={i} imgUrl={imgUrl} />
+              <HomeGridItem key={i} imgUrl={imgUrl} title="qwe" year={123} rating={5} />
             ))
-          : [1, 2, 3, 4].map((i) => <HomeGridItem key={i} imgUrl={imgUrl} />)}
+          : [1, 2, 3, 4].map((i) => <HomeGridItem key={i} imgUrl={imgUrl} title="qwe" year={123} rating={5}/>)}
       </div>
           </div>
       </div>

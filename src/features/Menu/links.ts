@@ -1,5 +1,5 @@
 
 
 export const links = [
-    "shows", "movies", "trending", "people"
+    "shows", "movies", "people"
 ]

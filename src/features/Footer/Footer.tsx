@@ -40,37 +40,37 @@ const contacts = [
 const stack = [
   {
     name: "React",
-    link: "#",
+    link: "https://reactjs.org",
     description: "frontend framework",
   },
   {
     name: "Redux Toolkit",
-    link: "#",
+    link: "https://redux-toolkit.js.org/",
     description: "state manager",
   },
   {
     name: "Swiper.js",
-    link: "#",
+    link: "https://swiperjs.com/",
     description: "popular slider module",
   },
   {
     name: "Tailwind",
-    link: "#",
+    link: "https://tailwindcss.com/",
     description: "CSS framework",
   },
   {
     name: "HeadlessUI",
-    link: "#",
+    link: "https://headlessui.dev/",
     description: "unstyled components",
   },
   {
     name: "Netlify",
-    link: "#",
-    description: "SPA (Single Page Application) free hosting",
+    link: "https://www.netlify.com/",
+    description: "SPA (Single Page Application) hosting",
   },
   {
     name: "Themoviedb",
-    link: "#",
+    link: "https://www.themoviedb.org/",
     description: "open API of movies, tv shows, people data",
   },
 ];
@@ -93,14 +93,11 @@ export const Footer = () => {
           <ul className="list-disc list-inside p-2">
             {stack.map((tech, i) => (
               <li key={i}>
-                <strong
-                  onClick={() => {
-                    console.log(tech.link);
-                  }}
+                <a href={tech.link}
                   className="font-semibold hover:text-pink-600 transition-colors duration-300 cursor-pointer"
                 >
                   {tech.name}
-                </strong>
+                </a>
                 {" " + tech.description}
               </li>
             ))}
@@ -120,7 +117,7 @@ export const Footer = () => {
               return (
 <li
                   key={i}>
-                <a className="hover:text-pink-600 transition-colors duration-300 cursor-pointer capitalize flex items-center gap-1"
+                <a className="hover:text-pink-600 transition-colors duration-300 cursor-pointer capitalize w-fit flex items-center gap-1"
                   href={
                     contact.name !== "email"
                       ? contact.link
