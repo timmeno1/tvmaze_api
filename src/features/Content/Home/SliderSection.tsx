@@ -2,14 +2,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, A11y, Autoplay, EffectCoverflow, Navigation } from "swiper";
 import "swiper/css/bundle";
 import { Slide } from "./Slide";
+import { useAppSelector } from "../../../app/hooks";
+import { useEffect, useState } from "react";
+import { MoviesTVsItem } from "./home.reducer";
 
-// image request configuration
-let baseUrl = "https://image.tmdb.org/t/p/";
-let size = "w1280";
-let imgPath = "/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg";
 
 export const SliderSection = () => {
-  const imgUrl = `${baseUrl}${size}${imgPath}`;
+
+  const slidesData = useAppSelector((state)=>(state.homePage.slides))
+  const [slides, setSlides] = useState<Array<MoviesTVsItem>>([
+    {
+      id: 1,
+      title: "no title",
+      poster: "no poster",
+      year: 1,
+      rating: 1,
+      link: "no link",
+      backdrop: "no backdrop"
+    }])
+
+  useEffect(()=>{
+    if(slidesData.length === 8) {
+      setSlides(slidesData)
+    }
+  }, [slidesData])
 
   return (
     <Swiper
@@ -33,11 +49,11 @@ export const SliderSection = () => {
         slideShadows: false,
       }}
     >
-      {[1, 2, 3, 4, 5].map((i) => (
-        <SwiperSlide key={i}>
-          <Slide imgUrl={imgUrl} />
-        </SwiperSlide>
-      ))}
+    {slides.map((slide) => (
+      <SwiperSlide key={slide.id}>
+        <Slide id={slide.id} link={slide.link} poster={slide.poster} backdrop={slide.backdrop} rating={slide.rating}  title={slide.title} year={slide.year} />
+      </SwiperSlide>
+    ))}
     </Swiper>
   );
 };

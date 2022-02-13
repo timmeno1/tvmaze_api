@@ -14,14 +14,14 @@ const trendingPeople = `/trending/person/week?api_key=${apikey}`
 // movies page
 const popularMovies = `/movie/popular?api_key=${apikey}`
 const moviesFilter = `/discover/movie?api_key=${apikey}&sort_by=popularity.desc&release_date.gte=${"RELEASE DATE START"}&release_date.lte=${"RELEASE DATE END"}&with_genres=${"GENRES"}&with_keywords=${"KEYWORD"}&page=3`
-
+const movieDetailPage = `/movie/${"ID"}?api_key=${apikey}`
 // tv shows page
 const popularTV = `/tv/popular?api_key=${apikey}`
 const tvFilter = `/discover/tv?api_key=${apikey}&sort_by=popularity.desc&air_date.gte=${"RELEASE DATE START"}&air_date.lte=${"RELEASE DATE END"}&with_genres=${"GENRES"}&with_keywords=${"KEYWORD"}&page=3`
-
+const TVDetailPage = `/tv/${"ID"}?api_key=${apikey}`
 // people page
 const popularPeople = `/person/popular?api_key=${apikey}&page=3`
-
+const personDetailPage = `/person/${"ID"}?api_key=${apikey}`
 
 // search page
 const searchQuery = `/search/multi?api_key=${apikey}&query=${"QUERY"}`
