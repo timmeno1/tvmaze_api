@@ -28,6 +28,8 @@ export const TrendingTVShowsSection = () => {
         {!isLoading ? (
           TVs.map((tv) => (
             <HomeGridItem
+              mediaType={tv.mediaType}
+              id={tv.id}
               key={tv.id}
               imgUrl={tv.poster}
               title={tv.title}

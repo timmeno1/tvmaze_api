@@ -2,7 +2,7 @@
 import { useGetOneMovieMutation } from "../app/services/movies/moviesPageApi"
 
 
-export const MovieTVDetailPage =  () => {
+export const MediaDetailPage =  () => {
 
     const [getOneMovie, {isLoading, data}] = useGetOneMovieMutation()
 

@@ -50,7 +50,7 @@ export const PopularPeopleSection = () => {
       >
         {people.map((person) => (
           <SwiperSlide key={person.id}>
-            <PeopleItem id={person.id} name={person.name} profile_path={person.profile_path}/>
+            <PeopleItem id={person.id} mediaType={person.id.toString()}  name={person.name} profile_path={person.profile_path}/>
           </SwiperSlide>
         ))}
       </Swiper>

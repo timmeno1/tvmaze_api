@@ -17,7 +17,7 @@ export const SliderSection = () => {
       poster: "no poster",
       year: 1,
       rating: 1,
-      link: "no link",
+      mediaType: "no type",
       backdrop: "no backdrop"
     }])
 
@@ -51,7 +51,7 @@ export const SliderSection = () => {
     >
     {slides.map((slide) => (
       <SwiperSlide key={slide.id}>
-        <Slide id={slide.id} link={slide.link} poster={slide.poster} backdrop={slide.backdrop} rating={slide.rating}  title={slide.title} year={slide.year} />
+        <Slide id={slide.id} mediaType={slide.mediaType} poster={slide.poster} backdrop={slide.backdrop} rating={slide.rating}  title={slide.title} year={slide.year} />
       </SwiperSlide>
     ))}
     </Swiper>

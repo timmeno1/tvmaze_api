@@ -6,7 +6,7 @@ export type MoviesTVsItem = {
   poster: string;
   year: number;
   rating: number;
-  link: string;
+  mediaType: string,
   backdrop:string
 };
 export type MoviesType = {
@@ -23,6 +23,7 @@ export type PeopleType = {
   id: number;
   name: string;
   profile_path: string;
+  mediaType: string
 };
 
 export type SliceState = MoviesType & TVsType & SlidesType & [PeopleType];
@@ -35,7 +36,7 @@ const initialState = {
       poster: "no poster",
       year: 1,
       rating: 1,
-      link: "no link",
+      mediaType: "no type",
       backdrop: "no backdrop"
     },
   ],
@@ -46,7 +47,7 @@ const initialState = {
       poster: "no poster",
       year: 1,
       rating: 1,
-      link: "no link",
+      mediaType: "no type",
       backdrop: "no backdrop"
     },
   ],
@@ -57,7 +58,7 @@ const initialState = {
       poster: "no poster",
       year: 1,
       rating: 1,
-      link: "no link",
+      mediaType: "no type",
       backdrop: "no backdrop"
     },
   ],
@@ -66,6 +67,7 @@ const initialState = {
       id: 1,
       name: "FirstName LastName",
       profile_path: "image link",
+      mediaType: "no type",
     },
   ],
 };

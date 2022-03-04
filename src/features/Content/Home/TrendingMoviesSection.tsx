@@ -29,6 +29,8 @@ export const TrendingMoviesSection = () => {
         {!isLoading ? (
           movies.map((movie) => (
             <HomeGridItem
+              mediaType={movie.mediaType}
+              id={movie.id}
               key={movie.id}
               imgUrl={movie.poster}
               title={movie.title}

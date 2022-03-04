@@ -1,6 +1,6 @@
-import { MovieTVDetailPage } from "../components/MovieTVDetailPage";
+import { MediaDetailPage } from "../components/MediaDetailPage";
 import { Home } from "../features/Content/Home/Home";
-import { Moveis } from "../features/Content/Movies/Movies";
+import { Movies } from "../features/Content/Movies/Movies";
 import { People } from "../features/Content/People/People";
 import { Shows } from "../features/Content/Shows/Shows";
 
@@ -14,15 +14,23 @@ export const routes = [
     element: <Shows />,
   },
   {
-    path: "/movies",
-    element: <Moveis />,
+    path: "/shows/:id",
+    element: <MediaDetailPage />,
   },
   {
-    path: "movies/detail",
-    element: <MovieTVDetailPage />,
+    path: "/movies",
+    element: <Movies />,
+  },
+  {
+    path: "/movies/:id",
+    element: <MediaDetailPage />,
   },
   {
     path: "/people",
     element: <People />,
+  },
+  {
+    path: "/person/:id",
+    element: <MediaDetailPage />,
   },
 ];

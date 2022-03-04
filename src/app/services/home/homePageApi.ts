@@ -21,7 +21,7 @@ const formatMoviesArray = (data: any) => {
       poster: "no poster",
       year: 2,
       rating: 2,
-      link: "no link",
+      mediaType: "no type",
       backdrop: "no backdrop",
     },
   ];
@@ -32,6 +32,7 @@ const formatMoviesArray = (data: any) => {
     let rating: number = data.results[i].vote_average * 10;
     let poster: string = posterImgBaseUrl + data.results[i].poster_path;
     let backdrop: string = sliderImgBaseUrl + data.results[i].backdrop_path;
+    let mediaType: string = data.results[i].media_type
     let id: number = data.results[i].id;
     i === 0
       ? (dataFormatted[i] = {
@@ -40,7 +41,7 @@ const formatMoviesArray = (data: any) => {
           poster: poster,
           year: year,
           rating: rating,
-          link: `link/${id}`,
+          mediaType: mediaType,
           backdrop: backdrop,
         })
       : dataFormatted.push({
@@ -49,7 +50,7 @@ const formatMoviesArray = (data: any) => {
           poster: poster,
           year: year,
           rating: rating,
-          link: `link/${id}`,
+          mediaType: mediaType,
           backdrop: backdrop,
         });
   }
@@ -57,6 +58,7 @@ const formatMoviesArray = (data: any) => {
   return dataFormatted;
 };
 const formatTVsArray = (data: any) => {
+
   let dataFormatted: Array<MoviesTVsItem> = [
     {
       id: 2,
@@ -64,7 +66,7 @@ const formatTVsArray = (data: any) => {
       poster: "no poster",
       year: 2,
       rating: 2,
-      link: "no link",
+      mediaType: "mediaType",
       backdrop: "no backdrop",
     },
   ];
@@ -75,6 +77,7 @@ const formatTVsArray = (data: any) => {
     let rating = data.results[i].vote_average * 10;
     let poster = posterImgBaseUrl + data.results[i].poster_path;
     let backdrop: string = sliderImgBaseUrl + data.results[i].backdrop_path;
+    let mediaType: string = data.results[i].media_type
     let id = data.results[i].id;
     i === 0
       ? (dataFormatted[i] = {
@@ -83,7 +86,7 @@ const formatTVsArray = (data: any) => {
           poster: poster,
           year: year,
           rating: rating,
-          link: `link/${id}`,
+          mediaType: mediaType,
           backdrop: backdrop,
         })
       : dataFormatted.push({
@@ -92,34 +95,39 @@ const formatTVsArray = (data: any) => {
           poster: poster,
           year: year,
           rating: rating,
-          link: `link/${id}`,
+          mediaType: mediaType,
           backdrop: backdrop,
         });
   }
   return dataFormatted;
 };
 const formatPeopleArray = (data: any) => {
+
   let dataFormatted: Array<PeopleType> = [
     {
       id: 2,
       name: "name",
       profile_path: "image link",
+      mediaType: "no type"
     },
   ];
   for (let i = 0; i < 8; i++) {
     let name = data.results[i].name;
     let profile_path = posterImgBaseUrl + data.results[i].profile_path;
+    let mediaType = data.results[i].media_type
     let id = data.results[i].id;
     i === 0
       ? (dataFormatted[i] = {
           id: id,
           name: name,
           profile_path: profile_path,
+          mediaType: mediaType
         })
       : dataFormatted.push({
           id: id,
           name: name,
           profile_path: profile_path,
+          mediaType: mediaType
         });
   }
   return dataFormatted;
